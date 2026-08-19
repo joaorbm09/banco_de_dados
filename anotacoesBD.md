@@ -73,9 +73,7 @@ CREATE TABLE vendas(
     data DATE,
     id_cliente INT
 );
-
 ```
-
 
 
 # Guia de Relacionamentos em Banco de Dados

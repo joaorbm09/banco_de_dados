@@ -1,4 +1,4 @@
-# criando tabela de compras dos clientes
+# Criando tabela de compras dos clientes
 
 ``` mermaid
     erDiagram
@@ -6,7 +6,6 @@
             int id PK
             string nome
             string cpf
-            string endereço
             string telefone
             FK int numero_compra
         }
@@ -26,6 +25,15 @@
         status bool 
     }
 
+    endereco{
+        int id PK
+        string rua
+        string numero
+        string bairro
+        string cep
+    }
+
     clientes ||--o{ compras: "conecta"
     clientes ||--o{ pagamento: "conecta"
+    clientes ||--o{ endereco: "conecta"
 ```
