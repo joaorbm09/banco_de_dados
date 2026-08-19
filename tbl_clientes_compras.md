@@ -6,7 +6,6 @@
             int id PK
             string nome
             string cpf
-            string telefone
             FK int numero_compra
         }
 
@@ -35,7 +34,14 @@
         string cep
     }
 
+    telefone{
+        int id PK
+        int id_clientes FK
+        string telefone
+    }
+
     clientes ||--o{ compras: "conecta"
     clientes ||--o{ pagamento: "conecta"
     clientes ||--o{ endereco: "conecta"
+    clientes ||--o{ telefone: "conecta"
 ```
