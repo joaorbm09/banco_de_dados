@@ -75,3 +75,29 @@ CREATE TABLE vendas(
 );
 
 ```
+
+
+
+# Guia de Relacionamentos em Banco de Dados
+
+## Relacionamentos
+
+### 1 para 1 (1:1)
+Ocorre quando um registro em uma tabela está relacionado a exatamente um registro em outra tabela. É comum para evitar duplicação de dados ou separar informações de acesso, como em uma tabela de **Alunos** e uma de **Alunos da Banda**.
+
+### 1 para muitos (1:N)
+É o tipo mais comum, onde um registro em uma tabela pode estar relacionado a vários registros em outra. Isso é estabelecido através de uma chave estrangeira na tabela do "muitos" que referencia a chave primária da tabela do "um", como em **Clientes** e **Pedidos**.
+
+### Muitos para muitos (N:N)
+Ocorre quando vários registros de uma tabela se relacionam com vários de outra. Como bancos relacionais não suportam isso diretamente, ele é implementado por meio de uma tabela associativa (ou intermediária) que cria dois relacionamentos 1:N, como em **Pedidos** e **Produtos**.
+
+---
+
+## Perguntas para Relacionar Entidades de Banco de Dados
+
+> **Dica:** Ao analisar o relacionamento entre tabelas, siga o fluxo de perguntas abaixo:
+
+1. **Identificar a tabela primária:** Focar na tabela primária (ex: `Cliente`)
+2. **Identificar a tabela secundária:** Quem é a tabela secundária?
+3. **Mapear a cardinalidade:** Quantas vezes a tabela secundária terá dados da tabela primária?
+
