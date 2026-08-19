@@ -12,12 +12,13 @@
 
     compras { 
         int id PK
-        int id_cliente
+        int id_cliente FK
         date data_compra
     }
 
     pagamento{
         int id PK
+        int id_cliente FK
         date data
         date valid
         date pago
@@ -27,6 +28,7 @@
 
     endereco{
         int id PK
+        int id_cliente FK
         string rua
         string numero
         string bairro
