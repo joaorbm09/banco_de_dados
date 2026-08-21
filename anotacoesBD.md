@@ -99,3 +99,38 @@ Ocorre quando vários registros de uma tabela se relacionam com vários de outra
 2. **Identificar a tabela secundária:** Quem é a tabela secundária?
 3. **Mapear a cardinalidade:** Quantas vezes a tabela secundária terá dados da tabela primária?
 
+
+## 4 Modelagem de dados
+
+ - Armazenar informação/Dados relevantes á aplicação
+ 
+ - Representar o mundo real em "tabelas" relacionados
+ 
+ - Utilizar para análises (consiltas/Query)
+ 
+ - Modelo conceitual (Entidades e atributos)
+    - Relacionamento
+ - Modelo lógico => Detalhes do modelo conceitual(Relacionamentos/tipos de dados)
+
+ - Modelo Físico (SGBD-SQL)  
+
+### Entidades:
+
+    Pessoa => atributos: Nome, CPF;
+
+    Cliente => Pessoa, Empresa;
+
+    Loja;
+
+    Empresa;
+
+---
+
+**MER** - Modelo Entidade Relacionamento
+ -
+ - É um modelo que descreve os objtos envolvidos(entidade) em um negocio, com suas caracteristicas(atributos) e como elas se relacionam entre si(relacionamentos)
+
+
+**DER** - Diagrama Entidade Relacionamento 
+ -
+ - Também conhecido como diagrama ER, é uma representação visual que ilustra como as entidades (pessoas, objetos ou conceitos) interagem e se relacionam dentro de um sistema de banco de dados. 
