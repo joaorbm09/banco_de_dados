@@ -54,32 +54,77 @@ ALTER USER nome_user WITH NAME = novo_nome;
 DROP USER nome_user;
 ```
 
-## 4. GERENCIANDO tabelas:
+## 4. Gerenciando Tabelas (Tables):
+
+#### A. Criar Tabela (`CREATE TABLE`)
+Define a estrutura da tabela, colunas, tipos de dados e restrições (*constraints*).
 
 ```sql
 CREATE TABLE clientes (
     id SERIAL PRIMARY KEY,
-    nome VARCHAR(30),
-    sobre_nome VARCHAR(50),
-    telefone INT,
-    cpf VARCHAR(11)
-    
+    nome VARCHAR(60) NOT NULL,
+    cpf VARCHAR(11) UNIQUE NOT NULL,
+    telefone VARCHAR(15),
+    ativo BOOLEAN DEFAULT true,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-```
-- inserindo registro:
-``` sql
-CREATE TABLE vendas(
+
+CREATE TABLE vendas (
     id SERIAL PRIMARY KEY,
-    data DATE,
-    id_cliente INT
+    data DATE DEFAULT CURRENT_DATE,
+    id_cliente INT REFERENCES clientes(id)
 );
 ```
-- adiconando colunas em uma tabela
- > - assim desta forma podemos acrescentar uma coluna a uma tabela ja criada, ou seja, se caso a gente criar uma tabela faltando alguma informação(no caso uma coluna), podemos arescentatr.
+
+#### B. Alterar Tabela (`ALTER TABLE`)
+Modifica a estrutura de uma tabela existente sem apagar os dados existentes.
+
+- **Adicionar coluna:**
 ```sql
-ALTER TABLE alunos 
-    ADD COLUMNS "nome_coluna" & "tipo_da_coluna";
-    ADD COLUMNS "nome_coluna" & "tipo_da_coluna";
+ALTER TABLE clientes ADD COLUMN email VARCHAR(100);
+```
+
+- **Remover coluna:**
+```sql
+ALTER TABLE clientes DROP COLUMN telefone;
+```
+
+- **Renomear coluna:**
+```sql
+ALTER TABLE clientes RENAME COLUMN sobre_nome TO sobrenome;
+```
+
+- **Alterar tipo de dado de uma coluna:**
+```sql
+ALTER TABLE clientes ALTER COLUMN nome TYPE VARCHAR(100);
+```
+
+- **Renomear a tabela:**
+```sql
+ALTER TABLE clientes RENAME TO meus_clientes;
+```
+
+#### C. Apagar Tabela (`DROP TABLE`)
+Remove a tabela e todos os seus dados permanentemente.
+
+```sql
+DROP TABLE clientes;
+
+-- Evita erro caso a tabela não exista:
+DROP TABLE IF EXISTS clientes;
+
+-- Remove a tabela e todas as tabelas/chaves estrangeiras associadas a ela:
+DROP TABLE clientes CASCADE;
+```
+
+#### D. Limpar Dados (`TRUNCATE TABLE`)
+Apaga todos os registros da tabela rapidamente, mantendo sua estrutura intacta.
+
+```sql
+TRUNCATE TABLE clientes;
+
+-- Reinicia a contagem do SERIAL (ID volta para 1):
+TRUNCATE TABLE clientes RESTART IDENTITY;
 ```
 ---
 
@@ -146,12 +191,12 @@ Ocorre quando vários registros de uma tabela se relacionam com vários de outra
 
 # Revisao previa de login com linux e pelo postgres no banco de dados
 
-## CRUD com POSTGRESQL
+## Operações Principais (CRUD)
 
- > - Create (insert) Inserir dados
- > - Read (Select) Ler dados 
- > - Update (Update) Altualizar dados
- > - Delete (Delete) Apagar dados
+> - **C**reate (`INSERT`): Inserir dados
+> - **R**ead (`SELECT`): Consultar/Ler dados 
+> - **U**pdate (`UPDATE`): Atualizar dados 
+> - **D**elete (`DELETE`): Remover dados 
 
 
 ## login postegresql
