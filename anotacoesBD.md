@@ -74,7 +74,14 @@ CREATE TABLE vendas(
     id_cliente INT
 );
 ```
-
+- adiconando colunas em uma tabela
+ > - assim desta forma podemos acrescentar uma coluna a uma tabela ja criada, ou seja, se caso a gente criar uma tabela faltando alguma informação(no caso uma coluna), podemos arescentatr.
+```sql
+ALTER TABLE alunos 
+    ADD COLUMNS "nome_coluna" & "tipo_da_coluna";
+    ADD COLUMNS "nome_coluna" & "tipo_da_coluna";
+```
+---
 
 # Guia de Relacionamentos em Banco de Dados
 
@@ -134,3 +141,68 @@ Ocorre quando vários registros de uma tabela se relacionam com vários de outra
 **DER** - Diagrama Entidade Relacionamento 
  -
  - Também conhecido como diagrama ER, é uma representação visual que ilustra como as entidades (pessoas, objetos ou conceitos) interagem e se relacionam dentro de um sistema de banco de dados. 
+
+---
+
+# Revisao previa de login com linux e pelo postgres no banco de dados
+
+## CRUD com POSTGRESQL
+
+ > - Create (insert) Inserir dados
+ > - Read (Select) Ler dados 
+ > - Update (Update) Altualizar dados
+ > - Delete (Delete) Apagar dados
+
+
+## login postegresql
+ 1. usando o usuário linux:
+ ```bash
+ sudo -u postgres psql
+ ```
+**nunca** utilizar o postres para gerenciamento de bancos e tabelas. (Não utilizar na aplicação).
+ 2. usando usuario postgres:
+ ```sql
+ psql -U escola -h localhost -d escola
+ ```
+
+## Gerenciamento de databases
+ 1. Criando um database
+ ```sql
+ CREATE DATABASE escola;
+ ```
+ 2. Alterando database:
+ ```sql
+ ALTER DATABASE escola OWNER TO escola;
+ ```
+ 3. Apagando um database:
+ ```sql
+ DROP DATABASE nome_banco;
+ ```
+
+## GErenciamento de usuario:
+ 1. Criando usuário:
+ ```sql
+ CREATE USER escola WITH PASSWORD 'escola';
+ ```
+ 2. Alterando usário :
+ ```sql
+ ALTER USER escola WITH PASSWORD 'senha2';
+ ```
+
+---
+
+## Diagrama da tabela:
+
+```mermaid
+erDiagram
+alunos {
+    serial ID PK
+    varshar(60) nome
+    varshar(12) turma
+    date nascimento
+    bool ativo
+}
+```
+
+---
+
