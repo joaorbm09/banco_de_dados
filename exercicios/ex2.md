@@ -4,20 +4,22 @@
     erDiagram
         LIVRO{
             int ISBN PK 
-            string Titulo 
-            string Editora 
+            string titulo 
+            string editora 
         }
         AUTOR{
-            int id_autor PK 
+            int id PK 
             string nome 
         }
 
         LIVRO_AUTOR{
-            string ISBN FK 
+            int id PK
+            int id_livro FK 
             int id_autor FK
         }
 
 
+LIVRO }|--|{ AUTOR:"escreve"
 LIVRO ||--o{ LIVRO_AUTOR:"possui"
 AUTOR ||--o{ LIVRO_AUTOR:"escreve"
 ``` 
