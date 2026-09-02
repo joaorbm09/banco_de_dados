@@ -5,16 +5,16 @@
 ```mermaid
 erDiagram
     livros{
-        int id PK
-        int id_autor FK
-        string ISBD
-        string titulo
-        string editora
+        int id PK "unique autoincrement"
+        int id_autor FK "not null"
+        string ISBD "not null"
+        string titulo "not null"
+        string editora "not null"
     }
     autores{
-        int id PK
-        int id_livro FK
-        string nome
+        int id PK "unique autoincrement"
+        int id_livro FK "not null"
+        string nome "not null"
     }
 
 livros}|--|{ autores:"sao escritos"
@@ -28,19 +28,19 @@ livros}|--|{ autores:"sao escritos"
 ```mermaid
     erDiagram
         LIVRO{
-            int ISBN PK 
-            string titulo 
-            string editora 
+            int ISBN PK "unique autoincrement"
+            string titulo "not null"
+            string editora "not null"
         }
         AUTOR{
-            int id PK 
-            string nome 
+            int id PK "unique autoincrement"
+            string nome "not null"
         }
 
         LIVRO_AUTOR{
-            int id PK
-            int id_livro FK 
-            int id_autor FK
+            int id PK "unique autoincrement"
+            int id_livro FK "not null"
+            int id_autor FK "not null"
         }
 
 

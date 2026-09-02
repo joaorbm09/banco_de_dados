@@ -4,24 +4,24 @@
 ```mermaid
 erDiagram
     professor{
-        int id PK
-        string nome
+        int id PK "unique autoincrement"
+        string nome "not null"
     }
     diciplina{
-        int id PK
-        int id_cusro FK
-        string nome
+        int id PK "unique autoincrement"
+        int id_cusro FK "not null"
+        string nome "not null"
     }
     turma{
-        int id PK
-        string cod_turma
-        int id_cursos FK
-        int id_professor FK
-        string nome_turma
+        int id PK "unique autoincrement"
+        string cod_turma "not null"
+        int id_cursos FK "not null"
+        int id_professor FK "not null"
+        string nome_turma "not null"
     }
     curso{
-        int id PK
-        string nome
+        int id PK "unique autoincrement"
+        string nome "not null"
     }
 curso ||--o{diciplina:"pertence"
 professor ||--o{turma:"ministra"
