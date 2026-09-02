@@ -3,19 +3,15 @@
 ``` mermaid
     erDiagram
         Tabela_Clientes{
-            int id PK " 1"
-            string nome "Joao da silva"
-            string cpf "123.456.789-00"
+            int id_cliente PK
+            string nome 
+            string cpf 
         }
 
         telefone{
-            int id PK "1"
-            int id_cliente FK "1"
-            string telefone "(11) 8888-8888"
-            int id PK "2"
-            int id_cliente FK "1"
-            string telefone "(11) 9999-9999"
-            
+            int id PK 
+            int id_cliente FK
+            string telefone 
         }
     Tabela_Clientes ||--o{ telefone:"possui"
 

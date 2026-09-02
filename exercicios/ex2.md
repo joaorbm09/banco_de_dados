@@ -2,24 +2,22 @@
 
 ```mermaid
     erDiagram
-        View_Livros{
+        LIVRO{
             int ISBN PK 
-            string Título 
+            string Titulo 
             string Editora 
         }
-        Autor1{
-            int id PK 
-            int ISBN FK 
-            int id_autor 
+        AUTOR{
+            int id_autor PK 
+            string nome 
         }
 
-        Autor2{
-            int id PK 
-            int ISBN FK 
-            int id_autor 
+        LIVRO_AUTOR{
+            string ISBN FK 
+            int id_autor FK
         }
 
 
-Autor1 ||--o{ View_Livros:"escreve"
-Autor2 ||--o{ View_Livros:"escreve"
+LIVRO ||--o{ LIVRO_AUTOR:"possui"
+AUTOR ||--o{ LIVRO_AUTOR:"escreve"
 ``` 
