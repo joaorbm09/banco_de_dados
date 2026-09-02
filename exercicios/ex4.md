@@ -1,3 +1,38 @@
+# quarto exercicio criando tabelas para Disciplinas e Professores
+
+## Aqui esta o jeito que o professor fez
+```mermaid
+erDiagram
+    professor{
+        int id PK
+        string nome
+    }
+    diciplina{
+        int id PK
+        int id_cusro FK
+        string nome
+    }
+    turma{
+        int id PK
+        string cod_turma
+        int id_cursos FK
+        int id_professor FK
+        string nome_turma
+    }
+    curso{
+        int id PK
+        string nome
+    }
+curso ||--o{diciplina:"pertence"
+professor ||--o{turma:"ministra"
+curso ||--o{turma:"possuem"
+
+```
+
+---
+
+
+## Aqui foi o que eu tinha feito
 ```mermaid
     erDiagram
     tabela_turmas{
@@ -20,7 +55,10 @@
     tabela_turmas||--o{diciplinas:"contem"
     professores||--o{diciplinas:"ministra"
 ```
+
 ---
+
+## Aqui esta algo mais completo 
 
 ```mermaid
     erDiagram

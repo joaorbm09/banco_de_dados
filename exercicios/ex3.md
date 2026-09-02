@@ -1,27 +1,27 @@
+# terceiro exercicio, criando tabela para Itens de um Pedido
+
+
 ```mermaid
     erDiagram
         cliente{
-            int id_cliente PK 
+            int id PK 
             string nome
         }
+        produto{
+            int id PK
+            string nome_produto
+            float valor_produto
+        }
         pedido{
+            int id PK
             int id_produto PK
             int id_cliente FK
             dete data
-
-        }
-        produto{
-            int id_produto PK
-            string nome_produto
-            int valor_produto
-        }
-        item_pedido{
-            int id_pedido FK
-            int id_produto FK
             int quantidade
+            float produto_unit
         }
 
-cliente ||--o{ pedido :"gera"
-pedido||--o{ item_pedido :"contem"
-produto ||--o{item_pedido : "esta_em"
+cliente ||--o{ pedido :"Realiza"
+produto ||--o{ pedido :"Está"
+
 ```
